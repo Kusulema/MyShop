@@ -1,0 +1,122 @@
+/* --- Общие стили и Фон --- */
+
+/* Импортируем "жуткий" шрифт для заголовков. Nosifier или Creepster подходят для эффекта "капель/крови". */
+@import url('https://fonts.com/css2?family=Creepster&family=Nosifier&display=swap');
+
+body {
+    /* Фон: Имитация старой больницы с белым светом. 
+     * ВАЖНО: Добавьте изображение 'hospital_background.jpg' в папку public/img/ */
+    background: #000 url('/img/hospital_background.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    color: #c9c9c9; /* Светлый текст на темном фоне */
+    font-family: Arial, sans-serif;
+    background-image: url('/img/4.gif'); /* Анимированный фон */
+}
+
+/* Переопределяем стили Bootstrap для карточек, форм и навигации */
+.card, .form-control, .form-label, .container, .row, .col-12, .col-6, .col-sm-4 {
+    /* Убираем фоны, чтобы было видно основное изображение */
+    background-color: transparent !important; 
+    border: none !important;
+}
+
+/* Обводка для карточек, чтобы они были видны */
+.card {
+    border: 1px solid rgba(255, 0, 0, 0.2) !important; /* Легкая красная рамка */
+    backdrop-filter: blur(5px); /* Небольшое размытие фона для читабельности */
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+/* Финальное правило для гарантированного белого/светлого цвета текста на карточках.
+ * Это решает вашу исходную проблему с невидимым текстом! */
+.card .card-text, 
+.card .small,
+.card .fw-bold,
+.card p,
+.card .form-text,
+.card .form-label {
+    color: #c9c9c9 !important; 
+}
+
+
+/* Изменение цвета и шрифта заголовков (H1, названия товаров, бренд) */
+.navbar-brand, h1, h5.card-title {
+    font-family: unque, 'Creepster', 'Nosifier', cursive, sans-serif; /* Жуткий шрифт */
+    color: #ff0000 !important; /* Ярко-красный цвет (кровь) */
+    /* Красное свечение ламп */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.2); 
+    letter-spacing: 2px;
+}
+
+/* Навигация (Header) */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8) !important; /* Навигация полупрозрачная */
+    border-bottom: 1px solid rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* --- Стили для форм --- */
+.form-control {
+    background-color: rgba(30, 30, 30, 0.8) !important;
+    color: #c9c9c9 !important;
+    border: 1px solid rgba(255, 0, 0, 0.3) !important;
+}
+
+.form-control::placeholder {
+    color: rgba(200, 200, 200, 0.5) !important;
+}
+
+/* --- Стиль для цен (Красный на Черном) --- */
+/* Класс .price-tag нужно добавить в index.ejs */
+.price-tag, .fw-bold.price-tag {
+    /* Добавляем класс .price-tag в .ejs шаблоны (в index.ejs) */
+    background-color: #000000; 
+    color: #ff0000 !important; /* Ярко-красный */
+    border: 1px solid #ff0000;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-family: monospace;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    /* Исправляем цвет для Bootstrap-класса fw-bold */
+}
+
+/* --- Специальные стили для страницы Логина --- */
+.card.shadow-sm {
+    background-color: rgba(20, 20, 20, 0.95) !important;
+    border: 2px solid #ff0000 !important;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8) !important; /* Сильное свечение для логина */
+}
+
+/* --- Изменение цвета кнопок --- */
+.btn-primary {
+    background-color: #ff0000 !important;
+    border-color: #ff0000 !important;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+.btn-primary:hover {
+    background-color: #cc0000 !important;
+    border-color: #cc0000 !important;
+}
+.btn-success { /* Кнопка "Add product" */
+    background-color: #008000 !important;
+    border-color: #008000 !important;
+    box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
+}
+.btn-outline-secondary { /* Кнопка Cancel */
+    color: #c9c9c9 !important;
+    border-color: #c9c9c9 !important;
+}
+.btn-outline-primary { /* Кнопка Edit */
+    color: #ff0000 !important;
+    border-color: #ff0000 !important;
+}
+.btn-outline-danger { /* Кнопка Delete */
+    color: #cc0000 !important;
+    border-color: #cc0000 !important;
+}
+
+/* --- Общие утилиты --- */
+.card { border: none; }
+.object-fit-cover { object-fit: cover; }
